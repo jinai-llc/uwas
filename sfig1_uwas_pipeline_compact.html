@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Supplementary Figure S1 — UWAS Pipeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Source Sans 3',sans-serif; background:#fff; color:#1a1a2e; padding:16px 18px 14px; max-width:880px; margin:0 auto; }
+  .title { font-family:'Source Serif 4',serif; font-size:12px; font-weight:700; text-align:center; margin-bottom:2px; }
+  .subtitle { font-size:9px; color:#6b7280; text-align:center; margin-bottom:10px; line-height:1.3; }
+  .grid { display:flex; flex-direction:column; gap:0; }
+  .row { display:flex; gap:6px; align-items:stretch; }
+  .vconn { width:1.5px; height:7px; background:#d1d5db; margin:0 auto; position:relative; }
+  .vconn::after { content:''; position:absolute; bottom:-2px; left:50%; transform:translateX(-50%); border-left:3px solid transparent; border-right:3px solid transparent; border-top:3px solid #d1d5db; }
+  .hconn { width:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .hconn::after { content:'\2192'; color:#d1d5db; font-size:11px; font-weight:700; }
+  .s { border-radius:5px; padding:7px 9px; border:1px solid; flex:1; min-width:0; position:relative; }
+  .s-full { width:100%; }
+  .b { position:absolute; top:-6px; left:8px; font-size:7px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:0px 5px; border-radius:2px; line-height:1.5; }
+  .st { font-family:'Source Serif 4',serif; font-size:10.5px; font-weight:700; margin-top:3px; margin-bottom:1px; line-height:1.15; }
+  .sd { font-size:8.5px; color:#4b5563; line-height:1.35; }
+  .si { font-size:8px; color:#9ca3af; font-style:italic; margin-top:1px; }
+  .chips { display:flex; gap:3px; margin-top:4px; }
+  .chip { font-size:8px; font-weight:600; padding:2px 6px; border-radius:3px; border:1px solid; text-align:center; line-height:1.15; }
+  .chip small { display:block; font-weight:400; font-size:7px; opacity:.75; }
+  .c-cl { color:#1d4ed8; background:#eff6ff; border-color:#bfdbfe; }
+  .c-ge { color:#b45309; background:#fffbeb; border-color:#fde68a; }
+  .c-t1 { color:#6d28d9; background:#f5f3ff; border-color:#ddd6fe; }
+  .c-dt { color:#be185d; background:#fdf2f8; border-color:#fbcfe8; }
+  .caps { display:flex; gap:3px; margin-top:4px; }
+  .cap { flex:1; padding:3px 4px; border-radius:3px; border:1px solid #a7f3d0; background:#fff; text-align:center; }
+  .cap-t { font-size:8px; font-weight:700; color:#047857; }
+  .cap-d { font-size:7px; color:#6b7280; line-height:1.2; }
+  .paths { display:flex; gap:3px; margin-top:4px; }
+  .pb { flex:1; text-align:center; padding:2px 3px; border-radius:3px; font-size:8px; font-weight:600; border:1px solid; line-height:1.15; }
+  .pb small { display:block; font-weight:400; font-size:7px; opacity:.7; }
+  .ubar { margin-top:3px; display:flex; align-items:center; gap:4px; }
+  .uline { flex:1; height:1px; background:#ca8a04; }
+  .ulbl { font-size:7px; font-weight:700; letter-spacing:.06em; color:#a16207; background:#fef9c3; padding:0px 4px; border-radius:2px; border:1px solid #fde68a; }
+  .strata { display:flex; gap:3px; margin-top:4px; }
+  .str { flex:1; text-align:center; padding:2px 3px; border-radius:3px; font-size:8px; font-weight:600; border:1px solid #fecaca; background:#fff; color:#991b1b; line-height:1.15; }
+  .str small { display:block; font-weight:400; font-size:7px; color:#9ca3af; }
+  .bf { margin-top:3px; padding:3px 6px; background:#fff; border:1px solid #fdba74; border-radius:3px; font-family:'Courier New',monospace; font-size:8px; color:#7c2d12; text-align:center; }
+  .bf strong { color:#ea580c; background:#ffedd5; padding:0 2px; border-radius:1px; }
+  .bex { display:flex; gap:3px; margin-top:3px; }
+  .be { flex:1; padding:3px 5px; border-radius:3px; border:1px solid #fed7aa; background:#fff; }
+  .be-t { font-size:7.5px; font-weight:700; color:#c2410c; }
+  .be-d { font-size:7px; color:#6b7280; line-height:1.2; }
+  .novel { display:inline-block; font-size:6.5px; font-weight:700; color:#059669; background:#d1fae5; padding:0px 4px; border-radius:2px; margin-left:3px; vertical-align:middle; letter-spacing:.03em; }
+  .kreg { display:inline-block; font-size:6.5px; font-weight:700; color:#854d0e; background:#fef9c3; padding:0px 4px; border-radius:2px; margin-left:3px; vertical-align:middle; letter-spacing:.03em; }
+  .t-in  { border-color:#93c5fd; background:#f0f7ff; }  .t-in .b { background:#2563eb; color:#fff; }  .t-in .st { color:#1e40af; }
+  .t-co  { border-color:#86efac; background:#f0fdf4; }  .t-co .b { background:#16a34a; color:#fff; }  .t-co .st { color:#15803d; }
+  .t-as  { border-color:#d1d5db; background:#fafafa; }  .t-as .b { background:#4b5563; color:#fff; }  .t-as .st { color:#1f2937; }
+  .t-bt  { border-color:#fdba74; background:#fff7ed; }  .t-bt .b { background:#ea580c; color:#fff; }  .t-bt .st { color:#c2410c; }
+  .t-ai  { border-color:#6ee7b7; background:#ecfdf5; }  .t-ai .b { background:#059669; color:#fff; }  .t-ai .st { color:#047857; }
+  .t-fl  { border-color:#fde68a; background:#fffef5; }  .t-fl .b { background:#ca8a04; color:#fff; }  .t-fl .st { color:#854d0e; }
+  .t-el  { border-color:#c7d2fe; background:#f5f3ff; }  .t-el .b { background:#6366f1; color:#fff; }  .t-el .st { color:#4338ca; }
+  .t-lo  { border-color:#99f6e4; background:#f0fdfa; }  .t-lo .b { background:#0d9488; color:#fff; }  .t-lo .st { color:#0f766e; }
+  .t-sr  { border-color:#fecaca; background:#fef2f2; }  .t-sr .b { background:#dc2626; color:#fff; }  .t-sr .st { color:#991b1b; }
+  .t-ou  { border-color:#93c5fd; background:#eff6ff; }  .t-ou .b { background:#1e40af; color:#fff; }  .t-ou .st { color:#1e3a8a; }
+  .sec { font-size:7px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#9ca3af; text-align:center; margin:1px 0; }
+  .footer { margin-top:8px; padding-top:5px; border-top:1px solid #e5e7eb; font-size:7.5px; color:#9ca3af; line-height:1.5; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="title">Supplementary Figure S1. Universal-Wide Association Study (UWAS) Analytical Pipeline</div>
+<div class="subtitle">AI-augmented multi-modal framework with knowledge regularization for comorbidity-stratified prediction of Alzheimer's disease</div>
+
+<div class="grid">
+
+  <!-- ══ A ══ -->
+  <div class="sec">A &ensp; Data Assembly</div>
+  <div class="row">
+    <div class="s t-in">
+      <div class="b">Step 1</div>
+      <div class="st">ADNI Database</div>
+      <div class="sd">4,792 visits &middot; 58 sites &middot; 4 modalities</div>
+    </div>
+    <div class="hconn"></div>
+    <div class="s t-co">
+      <div class="b">Step 2</div>
+      <div class="st">Analytic Cohort</div>
+      <div class="sd"><strong>CN=749 &middot; AD=385</strong><br>Dedup &middot; Leakage exclusion &middot; MCI excluded</div>
+    </div>
+    <div class="hconn"></div>
+    <div class="s t-as" style="flex:1.4;">
+      <div class="b">Step 3</div>
+      <div class="st">Feature Assembly &mdash; 14,229 Variables</div>
+      <div class="chips">
+        <div class="chip c-cl">Clinical<small>65</small></div>
+        <div class="chip c-ge">Genetic<small>12</small></div>
+        <div class="chip c-t1">T1 MRI<small>8,914</small></div>
+        <div class="chip c-dt">DTI<small>5,238</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vconn"></div>
+
+  <!-- ══ B ══ -->
+  <div class="sec">B &ensp; AI-Augmented Feature Engineering</div>
+  <div class="row">
+    <div class="s t-bt">
+      <div class="b">Step 4</div>
+      <div class="st">Longitudinal MRI &rarr; &beta;<sub>3</sub></div>
+      <div class="sd">Age-interaction coefficients decouple disease-accelerated change from normal aging</div>
+      <div class="bf">Feature ~ &beta;<sub>0</sub> + &beta;<sub>1</sub>(Age) + &beta;<sub>2</sub>(Dx) + <strong>&beta;<sub>3</sub>(Age&times;Dx)</strong></div>
+      <div class="bex">
+        <div class="be"><div class="be-t">Hippocampal Vol</div><div class="be-d">AD declines faster &rarr; large &beta;<sub>3</sub></div></div>
+        <div class="be"><div class="be-t">Ventricular Vol</div><div class="be-d">AD expands faster &rarr; large &beta;<sub>3</sub></div></div>
+      </div>
+    </div>
+    <div class="hconn"></div>
+    <div class="s t-ai">
+      <div class="b">Step 5</div>
+      <div class="st">AI-Guided Engineering <span class="novel">NOVEL</span></div>
+      <div class="sd">GPT models (GPT-4o-mini) &rarr; biological knowledge network across 14,229 features</div>
+      <div class="caps">
+        <div class="cap"><div class="cap-t">LLM Annotation</div><div class="cap-d">AD-relevance 0&ndash;10</div></div>
+        <div class="cap"><div class="cap-t">Feature Network</div><div class="cap-d">Redundancy filter</div></div>
+        <div class="cap"><div class="cap-t">Knowledge Impute</div><div class="cap-d">Cross-modal fill</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vconn"></div>
+
+  <!-- ══ C ══ -->
+  <div class="sec">C &ensp; Feature Selection with Knowledge Regularization</div>
+  <div class="row">
+    <div class="s t-fl" style="flex:1.3;">
+      <div class="b">Step 6</div>
+      <div class="st">Pre-Filtering <span class="kreg">&lambda;<sub>k</sub>=5.0</span></div>
+      <div class="sd">Mann-Whitney U per pool. Imaging: &beta;<sub>3</sub> from Step 4. <strong>Clinical: knowledge-regularized</strong> &mdash; stats &times; LLM plausibility. Confounds (race, scan params) downweighted.</div>
+      <div class="paths">
+        <div class="pb" style="color:#854d0e;background:#fffbeb;border-color:#fde68a;">LLM Gate<small>Plausibility</small></div>
+        <div class="pb" style="color:#854d0e;background:#fffbeb;border-color:#fde68a;">Statistical<small>p &lt; 0.05</small></div>
+        <div class="pb" style="color:#854d0e;background:#fffbeb;border-color:#fde68a;">Mutual Info<small>Top 20%</small></div>
+      </div>
+      <div class="ubar"><div class="uline"></div><div class="ulbl">UNION</div><div class="uline"></div></div>
+    </div>
+    <div class="hconn"></div>
+    <div class="s t-el">
+      <div class="b">Step 7</div>
+      <div class="st">Backward Elimination</div>
+      <div class="sd">Iterative removal per modality. Smallest AUC decrement dropped per step.</div>
+      <div class="si">Clin: 65&rarr;8 &ensp;&middot;&ensp; T1: 8,914&rarr;10 &ensp;&middot;&ensp; DTI: 5,238&rarr;10</div>
+    </div>
+  </div>
+
+  <div class="vconn"></div>
+
+  <!-- ══ D ══ -->
+  <div class="sec">D &ensp; Validation &amp; Stratification</div>
+  <div class="row">
+    <div class="s t-lo">
+      <div class="b">Step 8</div>
+      <div class="st">LOSO Cross-Validation</div>
+      <div class="sd">10 sites (&ge;30 subj) &middot; L2 logistic (C=1.0) &middot; Deterministic &middot; LOSO-averaged weights</div>
+    </div>
+    <div class="hconn"></div>
+    <div class="s t-sr">
+      <div class="b">Step 9</div>
+      <div class="st">HTN &times; DM Stratification</div>
+      <div class="sd">Per-strata elimination + mixed-modality (6 features/stratum)</div>
+      <div class="strata">
+        <div class="str">HTN&minus;/DM&minus;<small>347</small></div>
+        <div class="str">HTN+/DM&minus;<small>291</small></div>
+        <div class="str">HTN&minus;/DM+<small>288</small></div>
+        <div class="str">HTN+/DM+<small>208</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vconn"></div>
+
+  <!-- ══ OUTPUT ══ -->
+  <div class="row">
+    <div class="s t-ou s-full">
+      <div class="b">Output</div>
+      <div class="st">Comorbidity-Specific Predictive Profiles</div>
+      <div class="sd">Feature importance (Fig.2) &middot; Combined AUC=0.950 (Fig.2C) &middot; Decoupling heatmap (Fig.3) &middot; Mixed-modality (Fig.4) &middot; Radar (Fig.5)</div>
+      <div class="sd" style="color:#1e40af;font-weight:600;margin-top:2px;">Key: PHS 0.98 &rarr; &minus;0.27 (inverted) &ensp;&middot;&ensp; DTI AUC 0.618 &rarr; 0.848 upon diabetes onset</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  ADNI = Alzheimer's Disease Neuroimaging Initiative &middot; UWAS = Universal-Wide Association Study &middot; LOSO = Leave-One-Site-Out &middot; HTN = Hypertension &middot; DM = Diabetes Mellitus &middot;
+  PHS = Polygenic Hazard Score &middot; APOE = Apolipoprotein E &middot; DTI = Diffusion Tensor Imaging &middot; LLM = Large Language Model
+</div>
+
+</body>
+</html>
