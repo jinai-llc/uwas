@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supplementary Figure S1 — UWAS Analytical Pipeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    padding: 40px 20px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── Title ── */
+  .fig-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .fig-sub {
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Pipeline container ── */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* ── Connector line ── */
+  .connector {
+    width: 2px;
+    height: 20px;
+    background: #d1d5db;
+    margin: 0 auto;
+    position: relative;
+  }
+  .connector::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #d1d5db;
+  }
+
+  /* ── Step card ── */
+  .step {
+    border-radius: 10px;
+    padding: 20px 24px;
+    position: relative;
+    border: 1.5px solid;
+    transition: box-shadow 0.2s;
+  }
+  .step:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .step-badge {
+    position: absolute;
+    top: -11px;
+    left: 24px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 4px;
+    line-height: 1.6;
+  }
+
+  .step-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+  .step-desc {
+    font-size: 12.5px;
+    color: #4b5563;
+    line-height: 1.55;
+  }
+  .step-detail {
+    font-size: 11.5px;
+    color: #9ca3af;
+    font-style: italic;
+    margin-top: 3px;
+  }
+
+  /* ── Modality chips ── */
+  .chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .chip small {
+    display: block;
+    font-weight: 400;
+    font-size: 10px;
+    opacity: 0.8;
+    margin-top: 1px;
+  }
+  .chip-clin { color: #1d4ed8; background: #eff6ff; border-color: #bfdbfe; }
+  .chip-gene { color: #b45309; background: #fffbeb; border-color: #fde68a; }
+  .chip-t1   { color: #6d28d9; background: #f5f3ff; border-color: #ddd6fe; }
+  .chip-dti  { color: #be185d; background: #fdf2f8; border-color: #fbcfe8; }
+
+  /* ── Three-path layout ── */
+  .paths {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .path-box {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.35;
+    border: 1px solid;
+  }
+  .path-box small {
+    display: block;
+    font-weight: 400;
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  .union-bar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .union-line {
+    flex: 1;
+    height: 1px;
+    background: #ca8a04;
+  }
+  .union-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #a16207;
+    background: #fef9c3;
+    padding: 2px 10px;
+    border-radius: 3px;
+    border: 1px solid #fde68a;
+  }
+
+  /* ── AI capabilities row ── */
+  .caps {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .cap {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 7px;
+    border: 1px solid #a7f3d0;
+    background: #fff;
+    text-align: center;
+  }
+  .cap-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #047857;
+    margin-bottom: 3px;
+  }
+  .cap-desc {
+    font-size: 10px;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+
+  /* ── Strata chips ── */
+  .strata {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .stratum {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    border: 1px solid #fecaca;
+    background: #fff;
+    color: #991b1b;
+  }
+  .stratum small {
+    display: block;
+    font-weight: 400;
+    font-size: 10px;
+    color: #9ca3af;
+  }
+
+  /* ── Color themes per step ── */
+  .s-input  { border-color: #93c5fd; background: #f0f7ff; }
+  .s-input .step-badge  { background: #2563eb; color: #fff; }
+  .s-input .step-title  { color: #1e40af; }
+
+  .s-cohort { border-color: #86efac; background: #f0fdf4; }
+  .s-cohort .step-badge { background: #16a34a; color: #fff; }
+  .s-cohort .step-title { color: #15803d; }
+
+  .s-assemble { border-color: #d1d5db; background: #fafafa; }
+  .s-assemble .step-badge { background: #4b5563; color: #fff; }
+  .s-assemble .step-title { color: #1f2937; }
+
+  .s-ai { border-color: #6ee7b7; background: #ecfdf5; }
+  .s-ai .step-badge { background: #059669; color: #fff; }
+  .s-ai .step-title { color: #047857; }
+
+  .s-beta { border-color: #fdba74; background: #fff7ed; }
+  .s-beta .step-badge { background: #ea580c; color: #fff; }
+  .s-beta .step-title { color: #c2410c; }
+
+  .beta-formula {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid #fdba74;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #7c2d12;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .beta-formula strong {
+    color: #ea580c;
+    background: #ffedd5;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  .beta-examples {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .beta-ex {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #fed7aa;
+    background: #fff;
+  }
+  .beta-ex-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #c2410c;
+    margin-bottom: 3px;
+  }
+  .beta-ex-desc {
+    font-size: 10px;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+
+  .s-filter { border-color: #fde68a; background: #fffef5; }
+  .s-filter .step-badge { background: #ca8a04; color: #fff; }
+  .s-filter .step-title { color: #854d0e; }
+
+  .s-elim { border-color: #c7d2fe; background: #f5f3ff; }
+  .s-elim .step-badge { background: #6366f1; color: #fff; }
+  .s-elim .step-title { color: #4338ca; }
+
+  .s-loso { border-color: #99f6e4; background: #f0fdfa; }
+  .s-loso .step-badge { background: #0d9488; color: #fff; }
+  .s-loso .step-title { color: #0f766e; }
+
+  .s-strat { border-color: #fecaca; background: #fef2f2; }
+  .s-strat .step-badge { background: #dc2626; color: #fff; }
+  .s-strat .step-title { color: #991b1b; }
+
+  .s-output { border-color: #93c5fd; background: #eff6ff; }
+  .s-output .step-badge { background: #1e40af; color: #fff; }
+  .s-output .step-title { color: #1e3a8a; }
+
+  /* ── Exclusion side note ── */
+  .excl-note {
+    position: absolute;
+    right: -170px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    font-size: 10px;
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 6px 10px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .excl-note::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid #fecaca;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 28px;
+    padding-top: 14px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 10px;
+    color: #9ca3af;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  /* ── Novel badge ── */
+  .novel {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    color: #059669;
+    background: #d1fae5;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<div class="fig-title">
+  Supplementary Figure S1. Universal-Wide Association Study (UWAS) Analytical Pipeline
+</div>
+<div class="fig-sub">
+  Step-by-step workflow of the UWAS framework, an artificial intelligence-augmented multi-modal analytical pipeline
+  for comorbidity-stratified prediction of Alzheimer's disease.
+</div>
+
+<div class="pipeline">
+
+  <!-- ═══ STEP 1 ═══ -->
+  <div class="step s-input">
+    <div class="step-badge">Step 1</div>
+    <div class="step-title">ADNI Database Extraction</div>
+    <div class="step-desc">
+      4,792 visits from the Alzheimer's Disease Neuroimaging Initiative (ADNI) across 58 acquisition sites.
+      Clinical demographics, genetic markers, T1 structural MRI, and diffusion tensor imaging (DTI) extracted.
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 2 ═══ -->
+  <div class="step s-cohort" style="overflow:visible;">
+    <div class="step-badge">Step 2</div>
+    <div class="step-title">Analytic Cohort Assembly</div>
+    <div class="step-desc">
+      <strong>CN = 749 &nbsp;|&nbsp; AD = 385 &nbsp;|&nbsp; 58 sites</strong><br>
+      Longitudinal deduplication: latest visit (AD), baseline (CN). Leakage exclusion: diagnostic labels and cognitive test scores removed from feature pool.
+    </div>
+    <div class="step-detail">MCI subjects excluded to maximize CN vs AD discriminative signal</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 3 ═══ -->
+  <div class="step s-assemble">
+    <div class="step-badge">Step 3</div>
+    <div class="step-title">Multi-Modal Feature Assembly</div>
+    <div class="step-desc">
+      14,229 candidate variables classified into four modality pools via suffix-based annotation.
+      Feature types automatically detected: continuous standardized, binary retained, categorical encoded (ordinal/one-hot).
+    </div>
+    <div class="chips">
+      <div class="chip chip-clin">Clinical<small>65 features</small></div>
+      <div class="chip chip-gene">Genetic<small>12 features</small></div>
+      <div class="chip chip-t1">T1 Structural MRI<small>8,914 features</small></div>
+      <div class="chip chip-dti">DTI Diffusion<small>5,238 features</small></div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 4 ═══ -->
+  <div class="step s-beta">
+    <div class="step-badge">Step 4</div>
+    <div class="step-title">Longitudinal MRI Feature Transformation</div>
+    <div class="step-desc">
+      For neuroimaging features derived from longitudinal MRI acquisitions, cross-sectional CN vs AD comparisons may be confounded by normal age-related atrophy.
+      To address this, population-level age-interaction beta coefficients (beta_int) were computed via regression modeling:
+    </div>
+    <div class="beta-formula">
+      Feature ~ beta_0 + beta_1(Age) + beta_2(Diagnosis) + <strong>beta_3(Age x Diagnosis)</strong>
+    </div>
+    <div class="step-desc" style="margin-top:8px;">
+      The interaction term <strong>beta_3</strong> quantifies how the age-feature relationship differs between CN and AD groups.
+      A significant beta_3 indicates that the feature's trajectory with age is altered by disease status — capturing disease-accelerated change rather than normal aging.
+      These beta_int values replaced raw feature values for longitudinal imaging variables, enabling the pre-filtering stage to evaluate
+      disease-specific signal independent of age confounding.
+    </div>
+    <div class="beta-examples">
+      <div class="beta-ex">
+        <div class="beta-ex-title">Example: Hippocampal Volume</div>
+        <div class="beta-ex-desc">Both CN and AD decline with age, but AD declines faster → large negative beta_3 → strong AD association</div>
+      </div>
+      <div class="beta-ex">
+        <div class="beta-ex-title">Example: Ventricular Volume</div>
+        <div class="beta-ex-desc">Both expand with age, but AD expands faster → large positive beta_3 → strong AD association</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 5 ═══ -->
+  <div class="step s-ai">
+    <div class="step-badge">Step 5</div>
+    <div class="step-title">AI-Guided Feature Engineering <span class="novel">NOVEL</span></div>
+    <div class="step-desc">
+      A large language model (GPT-4) evaluates each candidate variable for biological relevance to AD
+      and extracts cross-modal biological relationships, assembling a feature validation network.
+    </div>
+    <div class="caps">
+      <div class="cap">
+        <div class="cap-title">LLM Validation</div>
+        <div class="cap-desc">AD-relevance scoring (0–10) per feature based on established literature</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Feature Network</div>
+        <div class="cap-desc">Redundancy filtering via pairwise biological relationship graph</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Knowledge Imputation</div>
+        <div class="cap-desc">Missing values estimated from biologically connected features, not median fill</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 6 ═══ -->
+  <div class="step s-filter">
+    <div class="step-badge">Step 6</div>
+    <div class="step-title">Modality-Separated Pre-Filtering</div>
+    <div class="step-desc">
+      Mann-Whitney U test applied within each modality pool independently to evaluate marginal association with AD.
+      Prevents high-dimensional MRI features from dominating through numerosity.
+      Longitudinal imaging features evaluated using beta_int values from Step 4 rather than raw measurements.
+    </div>
+    <div class="paths">
+      <div class="path-box" style="color:#854d0e; background:#fffbeb; border-color:#fde68a;">
+        LLM Relevance Gate<small>Biological plausibility</small>
+      </div>
+      <div class="path-box" style="color:#854d0e; background:#fffbeb; border-color:#fde68a;">
+        Statistical Filter<small>p &lt; 0.05</small>
+      </div>
+      <div class="path-box" style="color:#854d0e; background:#fffbeb; border-color:#fde68a;">
+        Mutual Information<small>Top 20%</small>
+      </div>
+    </div>
+    <div class="union-bar">
+      <div class="union-line"></div>
+      <div class="union-label">UNION</div>
+      <div class="union-line"></div>
+    </div>
+    <div class="step-detail">Features passing any path retained — biologically plausible features with marginal significance not discarded</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 7 ═══ -->
+  <div class="step s-elim">
+    <div class="step-badge">Step 7</div>
+    <div class="step-title">Backward Feature Elimination</div>
+    <div class="step-desc">
+      Iterative removal within each modality independently. At each step, the feature whose removal causes the smallest AUC decrement is dropped.
+      Yields the minimal feature set preserving discriminative performance per modality.
+    </div>
+    <div class="step-detail">Clinical: 65 → 7 &nbsp;|&nbsp; T1 MRI: 8,914 → 7 &nbsp;|&nbsp; DTI: 5,238 → 7</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 8 ═══ -->
+  <div class="step s-loso">
+    <div class="step-badge">Step 8</div>
+    <div class="step-title">Leave-One-Site-Out (LOSO) Cross-Validation</div>
+    <div class="step-desc">
+      10 largest ADNI sites (each ≥30 subjects). For each fold, one site held out as test; L2 logistic regression (C=1.0) trained on remaining sites.
+      LOSO-averaged importance weights computed across all folds.
+    </div>
+    <div class="step-detail">Deterministic and reproducible — no stochastic variability from random fold assignment</div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ STEP 9 ═══ -->
+  <div class="step s-strat">
+    <div class="step-badge">Step 9</div>
+    <div class="step-title">HTN × DM Stratified Analysis</div>
+    <div class="step-desc">
+      Subjects stratified into four subgroups by hypertension (HTN) and diabetes (DM) status.
+      Per-strata backward elimination and mixed-modality combination search conducted independently.
+    </div>
+    <div class="strata">
+      <div class="stratum">HTN−/DM−<small>n = 347</small></div>
+      <div class="stratum">HTN+/DM−<small>n = 291</small></div>
+      <div class="stratum">HTN−/DM+<small>n = 288</small></div>
+      <div class="stratum">HTN+/DM+<small>n = 208</small></div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- ═══ OUTPUT ═══ -->
+  <div class="step s-output">
+    <div class="step-badge">Output</div>
+    <div class="step-title">Comorbidity-Specific Predictive Profiles</div>
+    <div class="step-desc">
+      Modality-specific feature importance rankings (Fig. 2), diabetes-dependent decoupling heatmap (Fig. 3),
+      and mixed-modality feature combinations per stratum (Fig. 4).
+    </div>
+    <div class="step-detail" style="color:#1e40af; font-style:normal; font-weight:600; margin-top:8px;">
+      Key finding: PHS 0.90 → 0.00 &nbsp;|&nbsp; APOE e4 0.19 → 0.01 &nbsp;|&nbsp; DTI AUC 0.606 → 0.861 upon diabetes onset
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  ADNI = Alzheimer's Disease Neuroimaging Initiative; CN = Cognitively Normal; AD = Alzheimer's Disease;
+  UWAS = Universal-Wide Association Study; LOSO = Leave-One-Site-Out; HTN = Hypertension; DM = Diabetes Mellitus<br>
+  PHS = Polygenic Hazard Score; APOE = Apolipoprotein E; DTI = Diffusion Tensor Imaging;
+  LLM = Large Language Model; FW = Free Water; MRI = Magnetic Resonance Imaging
+</div>
+
+</body>
+</html>

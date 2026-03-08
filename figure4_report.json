@@ -1,0 +1,146 @@
+{
+  "model_type": "adaptive_knowledge_constrained",
+  "lambda_k": 5.0,
+  "groups": {
+    "HTN- DM-": {
+      "n_subjects": {
+        "total": 347,
+        "cn": 198,
+        "ad": 149
+      },
+      "n_minimal_features": 6,
+      "auc": 0.868,
+      "features": [
+        [
+          "PHS_external_gene",
+          "PHS"
+        ],
+        [
+          "PHC_Sex_clin",
+          "Sex (M to F)"
+        ],
+        [
+          "PHC_Age_CardiovascularRisk_clin",
+          "Age"
+        ],
+        [
+          "ST144HS_mri_23",
+          "R HATA HS Vol"
+        ],
+        [
+          "ST40TA_mri_25",
+          "L Pericalcarine Thick"
+        ],
+        [
+          "ST138HS_mri_23",
+          "R Subiculum HS Vol"
+        ]
+      ]
+    },
+    "HTN+ DM-": {
+      "n_subjects": {
+        "total": 291,
+        "cn": 167,
+        "ad": 124
+      },
+      "n_minimal_features": 6,
+      "auc": 0.9857,
+      "features": [
+        [
+          "APOE_e4_carrier_gene",
+          "APOE Carrier"
+        ],
+        [
+          "PHS_external_gene",
+          "PHS"
+        ],
+        [
+          "PHC_Age_CardiovascularRisk_clin",
+          "Age"
+        ],
+        [
+          "ST144HS_mri_23",
+          "R HATA HS Vol"
+        ],
+        [
+          "ST29SV_mri_25",
+          "L Inf Temporal Vol"
+        ],
+        [
+          "ST85TA_mri_25",
+          "R Fusiform Thick"
+        ]
+      ]
+    },
+    "HTN- DM+": {
+      "n_subjects": {
+        "total": 288,
+        "cn": 237,
+        "ad": 51
+      },
+      "n_minimal_features": 6,
+      "auc": 0.9747,
+      "features": [
+        [
+          "PHC_Education_clin",
+          "Education (Low to High)"
+        ],
+        [
+          "PHC_Sex_clin",
+          "Sex (M to F)"
+        ],
+        [
+          "ST29SV_mri_25",
+          "L Inf Temporal Vol"
+        ],
+        [
+          "ST58TA_mri_25",
+          "L Cerebral WM Thick"
+        ],
+        [
+          "t1seg_left_hippocampus_freewater_mean_mri_28",
+          "L Hippocampus FW (mean)"
+        ],
+        [
+          "ST83TA_mri_25",
+          "R Entorhinal Thick"
+        ]
+      ]
+    },
+    "HTN+ DM+": {
+      "n_subjects": {
+        "total": 208,
+        "cn": 147,
+        "ad": 61
+      },
+      "n_minimal_features": 6,
+      "auc": 0.9394,
+      "features": [
+        [
+          "APOE_e4_carrier_gene",
+          "APOE Carrier"
+        ],
+        [
+          "PHC_Education_clin",
+          "Education (Low to High)"
+        ],
+        [
+          "PHC_Sex_clin",
+          "Sex (M to F)"
+        ],
+        [
+          "ST89SV_mri_25",
+          "R Isthmus Cing Vol"
+        ],
+        [
+          "TOTAL_HIPPO_mri_78",
+          "Total Hippo Vol"
+        ],
+        [
+          "t1seg_right_phg_parahippocampal_gyrus_md_median_mri_28",
+          "R Parahippocampal G. MD (med)"
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+Category,Feature,CN,AD,p_value,significant,n_available
+,Agea,74.6 ± 0.93,74.4 ± 1.01,0.5717,False,408
+,Education yearsa,16.6 ± 0.18,15.9 ± 0.27,<0.0001,True,1130
+, ≤ High school (≤12 yrs),7.7%,16.9%,<0.0001,True,1130
+, > Undergraduate (>16 yrs),48.7%,39.0%,0.0022,True,1130
+,Sex % female,58.79%,42.60%,<0.0001,True,1130
+,"Polygenic hazard scorea,c",-0.0 ± 0.08,0.7 ± 0.10,<0.0001,True,437
+,"BMI, kg/m²a",27.6 ± 0.39,26.5 ± 0.48,0.0034,True,1134
+Race,White,80.27%,90.13%,0.0020,True,0
+,Native Hawaiian/Pacific Islander,12.48%,5.97%,,False,0
+,Asian,4.03%,2.08%,,False,0
+,More than one race,2.82%,1.82%,,False,0
+,American Indian/Alaska Native,0.27%,0.00%,,False,0
+,Black or African American,0.13%,0.00%,,False,0
+Vascular risk,Hypertension,41.9%,48.1%,0.0567,False,1134
+,Diabetes mellitus,51.3%,29.1%,<0.0001,True,1134
+,Smoking history,15.6%,23.6%,0.0013,True,1134
+,Cardiovascular diseased,63.2%,62.3%,0.8751,False,637
+Neuroimaging,T1-weighted MRI,76.8%,90.6%,,False,0
+,DTI scan,74.8%,87.8%,,False,0

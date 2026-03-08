@@ -1,0 +1,204 @@
+{
+  "timestamp": "2026-03-07T22:17:54.097506",
+  "model_type": "knowledge_constrained_beta",
+  "lambda_k": 5.0,
+  "n_subjects": 1134,
+  "n_cn": 749,
+  "n_ad": 385,
+  "modalities": {
+    "clinical": {
+      "mean_auc": 0.7758693014940605,
+      "std_auc": 0.07003655816696416,
+      "n_sites": 10,
+      "top_features": [
+        [
+          "Polygenic Hazard Score",
+          0.6172
+        ],
+        [
+          "Age",
+          0.5512
+        ],
+        [
+          "APOE e4 Carrier",
+          0.4494
+        ],
+        [
+          "Education",
+          -0.2959
+        ],
+        [
+          "Diabetes",
+          0.1978
+        ],
+        [
+          "Sex (M to F)",
+          0.1479
+        ],
+        [
+          "BMI",
+          -0.1424
+        ],
+        [
+          "Hypertension",
+          0.1073
+        ]
+      ],
+      "sign_violations": []
+    },
+    "t1": {
+      "mean_auc": 0.8454471479068066,
+      "std_auc": 0.12606355234766473,
+      "n_sites": 10,
+      "top_features": [
+        [
+          "L Entorhinal Thick",
+          -1.0168
+        ],
+        [
+          "R Entorhinal Thick",
+          -0.727
+        ],
+        [
+          "R Hippocampus Vol",
+          -0.4086
+        ],
+        [
+          "L Precuneus Vol",
+          0.1553
+        ],
+        [
+          "R Sup Frontal Vol",
+          -0.1484
+        ],
+        [
+          "R Lat Vent Thick",
+          -0.1236
+        ],
+        [
+          "L Entorhinal Thick",
+          0.0924
+        ],
+        [
+          "R Entorhinal Thick",
+          0.0715
+        ],
+        [
+          "R Precuneus Vol",
+          0.0415
+        ],
+        [
+          "ICV Thick",
+          -0.0168
+        ]
+      ],
+      "sign_violations": [
+        {
+          "feature": "ST62TA_mri_20",
+          "expected": "+",
+          "learned": "-",
+          "beta": -0.01682246570814533,
+          "confidence": 0.7646761321694628
+        },
+        {
+          "feature": "ST24TA_mri_20",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.09235883129213047,
+          "confidence": 0.5581054512255921
+        }
+      ]
+    },
+    "dti": {
+      "mean_auc": 0.7615644933770808,
+      "std_auc": 0.13196260062644796,
+      "n_sites": 10,
+      "top_features": [
+        [
+          "R Hippocampus FW (mean)",
+          0.7807
+        ],
+        [
+          "R Hippocampus RD (med)",
+          -0.4587
+        ],
+        [
+          "Hippocampus RD (med)",
+          0.3171
+        ],
+        [
+          "R Fusiform G. FW (med)",
+          0.2731
+        ],
+        [
+          "L Parahippocampal G. RD (med)",
+          0.2413
+        ],
+        [
+          "L Parahippocampal G. AD (med)",
+          0.238
+        ],
+        [
+          "R Fusiform G. MD (med)",
+          -0.1048
+        ],
+        [
+          "L Parahippocampal G. AD (med)",
+          0.104
+        ],
+        [
+          "L Parahippocampal G. FW (med)",
+          -0.067
+        ],
+        [
+          "R Hippocampus MD (med)",
+          -0.0203
+        ]
+      ],
+      "sign_violations": [
+        {
+          "feature": "PHC_t1seg_left_phg_parahippocampal_gyrus_ad_median_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.10402454973398552,
+          "confidence": 0.9
+        },
+        {
+          "feature": "t1seg_left_phg_parahippocampal_gyrus_ad_median_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.23803068724383009,
+          "confidence": 0.9
+        },
+        {
+          "feature": "PHC_t1seg_right_hippocampus_freewater_mean_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.7807069923739973,
+          "confidence": 0.9
+        },
+        {
+          "feature": "PHC_t1seg_right_fug_fusiform_gyrus_freewater_median_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.2730839485952656,
+          "confidence": 0.7
+        },
+        {
+          "feature": "jhu_hippocampus_rd_median_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.3171385138231996,
+          "confidence": 0.9
+        },
+        {
+          "feature": "t1seg_left_phg_parahippocampal_gyrus_rd_median_mri_28",
+          "expected": "-",
+          "learned": "+",
+          "beta": 0.24130879164888927,
+          "confidence": 0.9
+        }
+      ]
+    }
+  }
+}

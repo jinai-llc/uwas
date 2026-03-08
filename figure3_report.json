@@ -1,0 +1,537 @@
+{
+  "timestamp": "2026-03-07T22:53:52.651796",
+  "model_type": "adaptive_knowledge_constrained",
+  "lambda_k": 5.0,
+  "n_subjects": 1134,
+  "n_cn": 749,
+  "n_ad": 385,
+  "htn_column": "PHC_Hypertension_clin",
+  "dm_column": "PHC_Diabetes_clin",
+  "clinical_pool_size": 6,
+  "t1_pool_size": 14,
+  "dti_pool_size": 20,
+  "clinical_pool_source": "results/figure2a_feature_importance.html",
+  "mri_pool_source": "top-3-per-group union",
+  "groups": {
+    "HTN- DM-": {
+      "n_cn": 198,
+      "n_ad": 149,
+      "modalities": {
+        "clinical": {
+          "mean_auc": 0.6202628133183689,
+          "std_auc": 0.2844513634570509,
+          "n_sites": 9,
+          "top_features": [
+            [
+              "Polygenic Hazard Score",
+              0.9775
+            ],
+            [
+              "Age",
+              0.2312
+            ],
+            [
+              "APOE Carrier",
+              -0.1847
+            ],
+            [
+              "Sex (M to F)",
+              0.0962
+            ],
+            [
+              "Education (Low to High)",
+              0.0588
+            ],
+            [
+              "BMI",
+              -0.0298
+            ]
+          ]
+        },
+        "t1": {
+          "mean_auc": 0.8195145903479237,
+          "std_auc": 0.07828294393548692,
+          "n_sites": 9,
+          "top_features": [
+            [
+              "L Entorhinal Thick",
+              -1.1042
+            ],
+            [
+              "L Inf Temporal Vol",
+              -0.9154
+            ],
+            [
+              "R Hipp CA4/DG Vol",
+              -0.9013
+            ],
+            [
+              "R HATA Vol",
+              -0.8617
+            ],
+            [
+              "Left Hippo",
+              0.7496
+            ],
+            [
+              "L Inf Temporal Vol",
+              0.6671
+            ],
+            [
+              "L Caud Mid Front Vol",
+              -0.5319
+            ],
+            [
+              "R Hipp CA2/3 Vol",
+              0.5032
+            ],
+            [
+              "R Entorhinal Thick",
+              -0.4561
+            ],
+            [
+              "R Isthmus Cing Vol",
+              0.4127
+            ]
+          ]
+        },
+        "dti": {
+          "mean_auc": 0.6175411522633745,
+          "std_auc": 0.13711876880262155,
+          "n_sites": 9,
+          "top_features": [
+            [
+              "L Fusiform G. FW (mean)",
+              -0.5654
+            ],
+            [
+              "R Hippocampus FW (med)",
+              0.5221
+            ],
+            [
+              "L Hippocampus RD (med)",
+              -0.4868
+            ],
+            [
+              "R Hippocampus AD (mean)",
+              -0.4084
+            ],
+            [
+              "L Parahippocampal G. FW (med)",
+              0.2815
+            ],
+            [
+              "R Hippocampus FW (mean)",
+              0.2766
+            ],
+            [
+              "L Fusiform G. FW (med)",
+              0.2627
+            ],
+            [
+              "L Parahippocampal G. FW (mean)",
+              0.237
+            ],
+            [
+              "L Hippocampus FW (mean)",
+              0.2251
+            ],
+            [
+              "R Hippocampus RD (med)",
+              0.2152
+            ]
+          ]
+        }
+      }
+    },
+    "HTN+ DM-": {
+      "n_cn": 167,
+      "n_ad": 124,
+      "modalities": {
+        "clinical": {
+          "mean_auc": 0.7234375,
+          "std_auc": 0.23717618146745828,
+          "n_sites": 4,
+          "top_features": [
+            [
+              "Polygenic Hazard Score",
+              0.9555
+            ],
+            [
+              "Age",
+              0.2129
+            ],
+            [
+              "Education (Low to High)",
+              -0.1148
+            ],
+            [
+              "Sex (M to F)",
+              0.098
+            ],
+            [
+              "BMI",
+              -0.0886
+            ],
+            [
+              "APOE Carrier",
+              0.0459
+            ]
+          ]
+        },
+        "t1": {
+          "mean_auc": 0.8214285714285715,
+          "std_auc": 0.1433918564277481,
+          "n_sites": 4,
+          "top_features": [
+            [
+              "L Inf Temporal Vol",
+              -1.118
+            ],
+            [
+              "R Hippocampus Vol",
+              0.798
+            ],
+            [
+              "R Isthmus Cing Vol",
+              0.6094
+            ],
+            [
+              "R HATA Vol",
+              -0.6076
+            ],
+            [
+              "R Hipp CA2/3 Vol",
+              0.5256
+            ],
+            [
+              "L Inf Temporal Vol",
+              -0.5062
+            ],
+            [
+              "R Hipp CA4/DG Vol",
+              -0.2817
+            ],
+            [
+              "Left Hippo",
+              0.2507
+            ],
+            [
+              "L Isthmus Cing Vol",
+              0.2339
+            ],
+            [
+              "L Caud Mid Front Vol",
+              -0.2099
+            ]
+          ]
+        },
+        "dti": {
+          "mean_auc": 0.7765625,
+          "std_auc": 0.12465253844667176,
+          "n_sites": 4,
+          "top_features": [
+            [
+              "R Hippocampus AD (mean)",
+              -0.7337
+            ],
+            [
+              "R Hippocampus AD (med)",
+              0.5693
+            ],
+            [
+              "L Fusiform G. RD (med)",
+              -0.403
+            ],
+            [
+              "R Hippocampus AD (med)",
+              0.384
+            ],
+            [
+              "R Hippocampus RD (med)",
+              -0.3011
+            ],
+            [
+              "L Parahippocampal G. RD (med)",
+              0.2601
+            ],
+            [
+              "L Fusiform G. FW (med)",
+              0.2371
+            ],
+            [
+              "Hippocampus RD (med)",
+              0.2009
+            ],
+            [
+              "L Hippocampus FW (mean)",
+              0.1864
+            ],
+            [
+              "L Parahippocampal G. FW (med)",
+              0.1787
+            ]
+          ]
+        }
+      }
+    },
+    "HTN- DM+": {
+      "n_cn": 237,
+      "n_ad": 51,
+      "modalities": {
+        "clinical": {
+          "mean_auc": 0.7395857614607615,
+          "std_auc": 0.1453540535954728,
+          "n_sites": 8,
+          "top_features": [
+            [
+              "Education (Low to High)",
+              -0.8726
+            ],
+            [
+              "Age",
+              0.5643
+            ],
+            [
+              "Polygenic Hazard Score",
+              -0.2702
+            ],
+            [
+              "BMI",
+              -0.2627
+            ],
+            [
+              "Sex (M to F)",
+              0.0994
+            ]
+          ]
+        },
+        "t1": {
+          "mean_auc": 0.8610625485625485,
+          "std_auc": 0.25001622000650603,
+          "n_sites": 8,
+          "top_features": [
+            [
+              "L Inf Temporal Vol",
+              -1.192
+            ],
+            [
+              "L Caud Mid Front Vol",
+              -0.4584
+            ],
+            [
+              "R Entorhinal Thick",
+              -0.4577
+            ],
+            [
+              "L Isthmus Cing Vol",
+              0.4558
+            ],
+            [
+              "R Isthmus Cing Vol",
+              0.3998
+            ],
+            [
+              "Left Hippo",
+              0.3699
+            ],
+            [
+              "L Entorhinal Thick",
+              -0.3569
+            ],
+            [
+              "L Entorhinal Thick",
+              -0.3251
+            ],
+            [
+              "R Hipp CA2/3 Vol",
+              -0.2357
+            ],
+            [
+              "R Hipp CA4/DG Vol",
+              -0.1266
+            ]
+          ]
+        },
+        "dti": {
+          "mean_auc": 0.8482165404040405,
+          "std_auc": 0.15502788868378636,
+          "n_sites": 8,
+          "top_features": [
+            [
+              "R Hippocampus AD (med)",
+              0.3908
+            ],
+            [
+              "L Hippocampus FW (mean)",
+              0.2824
+            ],
+            [
+              "L Fusiform G. MD (med)",
+              0.2211
+            ],
+            [
+              "L Hippocampus RD (med)",
+              0.1879
+            ],
+            [
+              "L Parahippocampal G. FW (mean)",
+              0.1469
+            ],
+            [
+              "L Fusiform G. FW (mean)",
+              0.1372
+            ],
+            [
+              "R Hippocampus FW (mean)",
+              0.1345
+            ],
+            [
+              "L Fusiform G. RD (med)",
+              0.132
+            ],
+            [
+              "R Hippocampus AD (mean)",
+              0.1169
+            ],
+            [
+              "L Parahippocampal G. AD (med)",
+              0.1082
+            ]
+          ]
+        }
+      }
+    },
+    "HTN+ DM+": {
+      "n_cn": 147,
+      "n_ad": 61,
+      "modalities": {
+        "clinical": {
+          "mean_auc": 0.7023843206601826,
+          "std_auc": 0.08492541070605002,
+          "n_sites": 5,
+          "top_features": [
+            [
+              "Age",
+              0.7285
+            ],
+            [
+              "BMI",
+              -0.3531
+            ],
+            [
+              "Sex (M to F)",
+              0.3086
+            ],
+            [
+              "Education (Low to High)",
+              0.2482
+            ],
+            [
+              "Polygenic Hazard Score",
+              0.1666
+            ],
+            [
+              "APOE Carrier",
+              -0.0608
+            ]
+          ]
+        },
+        "t1": {
+          "mean_auc": 0.8749845269672857,
+          "std_auc": 0.07455560568911224,
+          "n_sites": 5,
+          "top_features": [
+            [
+              "R Entorhinal Thick",
+              -0.7497
+            ],
+            [
+              "R Isthmus Cing Vol",
+              0.7388
+            ],
+            [
+              "R Hippocampus Vol",
+              -0.6586
+            ],
+            [
+              "L Inf Temporal Vol",
+              -0.5921
+            ],
+            [
+              "Left Hippo",
+              -0.4788
+            ],
+            [
+              "L Inf Temporal Vol",
+              -0.2541
+            ],
+            [
+              "R Entorhinal Thick",
+              -0.2457
+            ],
+            [
+              "L Caud Mid Front Vol",
+              0.2208
+            ],
+            [
+              "R Hipp CA2/3 Vol",
+              0.1582
+            ],
+            [
+              "L Entorhinal Thick",
+              0.1015
+            ]
+          ]
+        },
+        "dti": {
+          "mean_auc": 0.8608569112879456,
+          "std_auc": 0.0547871171428483,
+          "n_sites": 5,
+          "top_features": [
+            [
+              "L Fusiform G. FW (mean)",
+              0.3712
+            ],
+            [
+              "R Hippocampus AD (mean)",
+              0.3452
+            ],
+            [
+              "R Hippocampus AD (med)",
+              0.3195
+            ],
+            [
+              "L Fusiform G. FW (med)",
+              0.2661
+            ],
+            [
+              "R Hippocampus FW (med)",
+              -0.2326
+            ],
+            [
+              "L Hippocampus RD (med)",
+              0.2307
+            ],
+            [
+              "L Fusiform G. RD (med)",
+              0.2175
+            ],
+            [
+              "L Hippocampus FW (mean)",
+              0.201
+            ],
+            [
+              "R Hippocampus FW (mean)",
+              0.1951
+            ],
+            [
+              "L Fusiform G. MD (med)",
+              0.1761
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

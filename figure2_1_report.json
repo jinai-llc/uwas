@@ -1,0 +1,61 @@
+{
+  "model_type": "knowledge_constrained",
+  "lambda_k": 5.0,
+  "n_subjects": 1134,
+  "n_cn": 749,
+  "n_ad": 385,
+  "n_features": 10,
+  "auc": 0.9498,
+  "features": [
+    [
+      "PHS_external_gene",
+      "PHS",
+      0.7354
+    ],
+    [
+      "PHC_Sex_clin",
+      "Sex (F to M)",
+      0.1487
+    ],
+    [
+      "ST29SV_mri_25",
+      "L Inf Temporal Vol",
+      -1.2455
+    ],
+    [
+      "ST83TA_mri_25",
+      "R Entorhinal Thick",
+      -0.4694
+    ],
+    [
+      "ST89SV_mri_25",
+      "R Isthmus Cing Vol",
+      0.9827
+    ],
+    [
+      "ST88SV_mri_25",
+      "R Hippocampus Vol",
+      0.3158
+    ],
+    [
+      "ST71SV_mri_25",
+      "L Ventral DC Vol",
+      -0.1093
+    ],
+    [
+      "ST90TA_mri_25",
+      "R Inf Temporal Thick",
+      -0.7922
+    ],
+    [
+      "ST119TA_mri_25",
+      "R Temporal Pole Thick",
+      0.035
+    ],
+    [
+      "ST118TA_mri_25",
+      "R Frontal Pole Thick",
+      0.2122
+    ]
+  ]
+}

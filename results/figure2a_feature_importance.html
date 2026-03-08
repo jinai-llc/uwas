@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Figure 2a</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"DM Sans",sans-serif;color:#1a1a1a;background:#fff;padding:40px 48px 36px;max-width:960px;margin:0 auto;}
+
+.fig-title{font-size:20px;font-weight:700;margin-bottom:6px;}
+.fig-sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:20px;}
+
+.auc-badge{display:inline-block;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:8px;
+            padding:6px 16px;margin-bottom:18px;font-size:14px;color:#991b1b;font-weight:600;}
+
+/* Section headers */
+.section-hdr{display:flex;align-items:center;gap:8px;padding:10px 0 4px;margin-top:6px;
+              border-top:1px solid #f0f0f0;font-size:14px;font-weight:700;color:#444;}
+.section-hdr:first-child{border-top:none;margin-top:0;}
+.sh-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+/* Bar chart */
+.chart{display:flex;flex-direction:column;gap:0px;}
+.row{display:flex;align-items:center;height:32px;}
+.lb{width:320px;font-size:14px;color:#333;text-align:right;padding-right:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:help;flex-shrink:0;}
+.ba{flex:1;display:flex;align-items:center;height:24px;}
+.br{height:24px;border-radius:3px;min-width:1px;}
+.bv{width:60px;font-size:13px;font-weight:600;color:#555;text-align:right;padding-right:10px;flex-shrink:0;}
+.st{width:130px;font-size:12px;color:#aaa;flex-shrink:0;}
+.sig3{color:#c0392b;font-weight:700;}.sig2{color:#d35400;font-weight:600;}.sig1{color:#aaa;}
+
+.foot{font-size:12px;color:#aaa;margin-top:14px;line-height:1.4;font-style:italic;}
+</style></head><body>
+
+<div class="fig-title">Figure 2a. Feature Importance for AD Prediction: Clinical + Genetic Model</div>
+<div class="fig-sub">
+  Risk factors ranked by LOSO-averaged standardized β (positive = higher AD risk), grouped into
+  HTN/Diabetes stratification variables, AD-related demographic and genetic features, and medical history.
+  Features aligned so ↑ = higher risk.
+  5 interaction terms active but hidden.
+  <b>***</b> p&lt;0.001, <b>**</b> p&lt;0.01, <b>*</b> p&lt;0.05 (Mann–Whitney U); d = Cohen’s d.
+  CN = 749, AD = 385 (N = 1134).
+</div>
+
+<div class="auc-badge">AUC = 0.831 ± 0.086 (LOSO, 10 sites)</div>
+
+<div class="chart">
+<div class="section-hdr"><div class="sh-dot" style="background:#dc2626;"></div>HTN / Diabetes</div>
+<div class="row"><div class="lb" title="PHC_Diabetes_clin | β=+0.0947 | d=-0.464 | p=1.0e-12">Diabetes</div><div class="ba"><div class="br" style="width:15.5%;background:#dc2626;"></div></div><div class="bv">0.095</div><div class="st"><span class="sig3">***</span> d=−0.46</div></div>
+<div class="row"><div class="lb" title="PHC_Hypertension_clin | β=+0.0674 | d=+0.123 | p=4.9e-02">Hypertension</div><div class="ba"><div class="br" style="width:11.1%;background:#dc2626;"></div></div><div class="bv">0.067</div><div class="st"><span class="sig1">*</span> d=+0.12</div></div>
+<div class="section-hdr"><div class="sh-dot" style="background:#3b82f6;"></div>AD-Related Features</div>
+<div class="row"><div class="lb" title="PHC_BMI_clin | β=+0.6094 | d=-0.204 | p=3.4e-03">BMI</div><div class="ba"><div class="br" style="width:100.0%;background:#3b82f6;"></div></div><div class="bv">0.609</div><div class="st"><span class="sig2">**</span> d=−0.20</div></div>
+<div class="row"><div class="lb" title="PHS | β=+0.1350 | d=+0.711 | p=7.1e-21">Polygenic hazard score</div><div class="ba"><div class="br" style="width:22.2%;background:#3b82f6;"></div></div><div class="bv">0.135</div><div class="st"><span class="sig3">***</span> d=+0.71</div></div>
+<div class="row"><div class="lb" title="PHC_Race_clin | β=+0.1175 | d=+0.244 | p=7.9e-04">Race (1=White, 2=Black, 5=Asian)</div><div class="ba"><div class="br" style="width:19.3%;background:#3b82f6;"></div></div><div class="bv">0.117</div><div class="st"><span class="sig3">***</span> d=+0.24</div></div>
+<div class="row"><div class="lb" title="PHC_Age_Cognition_clin1 | β=+0.1044 | d=-0.047 | p=2.0e-01">Age (at cognitive testing)</div><div class="ba"><div class="br" style="width:17.1%;background:#3b82f6;"></div></div><div class="bv">0.104</div><div class="st"><span class=""></span> d=−0.05</div></div>
+<div class="row"><div class="lb" title="PHC_Education_clin1 | β=+0.0817 | d=+0.034 | p=8.7e-01">Low education (years below max)</div><div class="ba"><div class="br" style="width:13.4%;background:#3b82f6;"></div></div><div class="bv">0.082</div><div class="st"><span class=""></span> d=+0.03</div></div>
+<div class="row"><div class="lb" title="GENOTYPE_gene7 | β=+0.0790 | d=+0.811 | p=1.7e-36">APOE genotype (e.g. 3/4)</div><div class="ba"><div class="br" style="width:13.0%;background:#3b82f6;"></div></div><div class="bv">0.079</div><div class="st"><span class="sig3">***</span> d=+0.81</div></div>
+<div class="row"><div class="lb" title="PHC_Ethnicity_clin | β=+0.0728 | d=+0.168 | p=1.1e-02">Hispanic ethnicity (1=Hisp, 0=Non-Hisp)</div><div class="ba"><div class="br" style="width:12.0%;background:#3b82f6;"></div></div><div class="bv">0.073</div><div class="st"><span class="sig1">*</span> d=+0.17</div></div>
+<div class="row"><div class="lb" title="PHC_Sex_clin1 | β=+0.0274 | d=-0.250 | p=4.3e-05">Male sex (1=M, 2=F)</div><div class="ba"><div class="br" style="width:4.5%;background:#3b82f6;"></div></div><div class="bv">0.027</div><div class="st"><span class="sig3">***</span> d=−0.25</div></div>
+<div class="section-hdr"><div class="sh-dot" style="background:#8b5cf6;"></div>Medical History</div>
+<div class="row"><div class="lb" title="PHC_Heart_clin | β=+0.1565 | d=-0.502 | p=2.0e-14">Heart disease</div><div class="ba"><div class="br" style="width:25.7%;background:#8b5cf6;"></div></div><div class="bv">0.156</div><div class="st"><span class="sig3">***</span> d=−0.50</div></div>
+<div class="row"><div class="lb" title="MHPSYCH_medi75 | β=+0.1125 | d=+0.398 | p=8.1e-11">Psychiatric disorder</div><div class="ba"><div class="br" style="width:18.5%;background:#8b5cf6;"></div></div><div class="bv">0.112</div><div class="st"><span class="sig3">***</span> d=+0.40</div></div>
+<div class="row"><div class="lb" title="MH10GAST_medi75 | β=+0.1023 | d=+0.142 | p=2.2e-02">Gastrointestinal (1=Yes)</div><div class="ba"><div class="br" style="width:16.8%;background:#8b5cf6;"></div></div><div class="bv">0.102</div><div class="st"><span class="sig1">*</span> d=+0.14</div></div>
+<div class="row"><div class="lb" title="MH12RENA_medi75 | β=+0.0881 | d=+0.394 | p=1.5e-10">Renal/genitourinary (1=Yes)</div><div class="ba"><div class="br" style="width:14.5%;background:#8b5cf6;"></div></div><div class="bv">0.088</div><div class="st"><span class="sig3">***</span> d=+0.39</div></div>
+<div class="row"><div class="lb" title="MH8MUSCL_medi75 | β=+0.0838 | d=-0.262 | p=1.8e-05">Musculoskeletal (1=Yes)</div><div class="ba"><div class="br" style="width:13.8%;background:#8b5cf6;"></div></div><div class="bv">0.084</div><div class="st"><span class="sig3">***</span> d=−0.26</div></div>
+<div class="row"><div class="lb" title="MH2NEURL_medi75 | β=+0.0317 | d=+0.249 | p=4.6e-05">Neurological disorder (1=Yes)</div><div class="ba"><div class="br" style="width:5.2%;background:#8b5cf6;"></div></div><div class="bv">0.032</div><div class="st"><span class="sig3">***</span> d=+0.25</div></div>
+<div class="row"><div class="lb" title="MH5RESP_medi75 | β=+0.0311 | d=+0.170 | p=5.3e-03">Respiratory disease (1=Yes)</div><div class="ba"><div class="br" style="width:5.1%;background:#8b5cf6;"></div></div><div class="bv">0.031</div><div class="st"><span class="sig2">**</span> d=+0.17</div></div>
+<div class="row"><div class="lb" title="MH13ALLE_medi75 | β=+0.0297 | d=+0.138 | p=2.6e-02">Allergies/immunologic (1=Yes)</div><div class="ba"><div class="br" style="width:4.9%;background:#8b5cf6;"></div></div><div class="bv">0.030</div><div class="st"><span class="sig1">*</span> d=+0.14</div></div>
+<div class="row"><div class="lb" title="MH3HEAD_medi75 | β=+0.0226 | d=-0.275 | p=7.8e-06">Head injury (1=Yes)</div><div class="ba"><div class="br" style="width:3.7%;background:#8b5cf6;"></div></div><div class="bv">0.023</div><div class="st"><span class="sig3">***</span> d=−0.27</div></div>
+<div class="row"><div class="lb" title="MH15DRUG_medi75 | β=+0.0223 | d=-0.017 | p=7.9e-01">Drug abuse (1=Yes)</div><div class="ba"><div class="br" style="width:3.7%;background:#8b5cf6;"></div></div><div class="bv">0.022</div><div class="st"><span class=""></span> d=−0.02</div></div>
+<div class="row"><div class="lb" title="MH16SMOK_medi75 | β=+0.0210 | d=+0.215 | p=5.0e-04">Smoking (1=Yes)</div><div class="ba"><div class="br" style="width:3.4%;background:#8b5cf6;"></div></div><div class="bv">0.021</div><div class="st"><span class="sig3">***</span> d=+0.21</div></div>
+<div class="row"><div class="lb" title="MH17MALI_medi75 | β=+0.0191 | d=+0.135 | p=2.8e-02">Malignancy/cancer (1=Yes)</div><div class="ba"><div class="br" style="width:3.1%;background:#8b5cf6;"></div></div><div class="bv">0.019</div><div class="st"><span class="sig1">*</span> d=+0.13</div></div>
+<div class="row"><div class="lb" title="MH19OTHR_medi75 | β=+0.0166 | d=+0.231 | p=1.5e-04">Other medical condition</div><div class="ba"><div class="br" style="width:2.7%;background:#8b5cf6;"></div></div><div class="bv">0.017</div><div class="st"><span class="sig3">***</span> d=+0.23</div></div>
+<div class="row"><div class="lb" title="MH6HEPAT_medi75 | β=+0.0151 | d=+0.085 | p=1.6e-01">Hepatic disease (1=Yes)</div><div class="ba"><div class="br" style="width:2.5%;background:#8b5cf6;"></div></div><div class="bv">0.015</div><div class="st"><span class=""></span> d=+0.08</div></div>
+<div class="row"><div class="lb" title="MH18SURG_medi75 | β=+0.0139 | d=-0.220 | p=3.1e-04">Major surgery (1=Yes)</div><div class="ba"><div class="br" style="width:2.3%;background:#8b5cf6;"></div></div><div class="bv">0.014</div><div class="st"><span class="sig3">***</span> d=−0.22</div></div>
+<div class="row"><div class="lb" title="MH7DERM_medi75 | β=+0.0088 | d=+0.205 | p=8.2e-04">Dermatologic (1=Yes)</div><div class="ba"><div class="br" style="width:1.4%;background:#8b5cf6;"></div></div><div class="bv">0.009</div><div class="st"><span class="sig3">***</span> d=+0.21</div></div>
+<div class="row"><div class="lb" title="MH11HEMA_medi75 | β=+0.0045 | d=+0.075 | p=2.2e-01">Hematologic/lymphatic (1=Yes)</div><div class="ba"><div class="br" style="width:0.7%;background:#8b5cf6;"></div></div><div class="bv">0.005</div><div class="st"><span class=""></span> d=+0.08</div></div>
+<div class="row"><div class="lb" title="MH14ALCH_medi75 | β=+0.0043 | d=+0.066 | p=2.8e-01">Alcohol abuse (1=Yes)</div><div class="ba"><div class="br" style="width:0.7%;background:#8b5cf6;"></div></div><div class="bv">0.004</div><div class="st"><span class=""></span> d=+0.07</div></div>
+</div>
+
+<div class="foot">28 features shown across 3 categories. Vascular features deduplicated to hypertension.</div>
+
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Figure 2</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap");
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Source Sans 3",sans-serif;color:#1a1a2e;background:#fff;padding:40px 48px 36px;max-width:750px;margin:0 auto;}
+.fig-title{font-family:"Source Serif 4",serif;font-size:20px;font-weight:700;margin-bottom:6px;}
+.fig-sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:20px;}
+.n-info{font-size:12px;color:#64748b;margin-bottom:16px;}
+.foot{font-size:11px;color:#aaa;margin-top:20px;line-height:1.5;font-style:italic;border-top:1px solid #eee;padding-top:10px;}
+</style></head><body>
+<div class="fig-title">Figure 2. Feature Importance by Modality</div>
+<div class="fig-sub">
+  Separate bounded logistic regression models [0, 1] per modality via L-BFGS-B.
+  Features z-scored and direction-aligned internally, trained on the full cohort
+  using LOSO cross-validation. Each modality section shows its own AUC.
+</div>
+<div class="n-info">N = 1134 (CN = 749, AD = 385)</div>
+<svg width="650" height="828" xmlns="http://www.w3.org/2000/svg" font-family="Source Sans 3, sans-serif">
+<line x1="400.0" y1="46" x2="400.0" y2="796" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="355.0" y1="46" x2="355.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="445.0" y1="46" x2="445.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="310.0" y1="46" x2="310.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="490.0" y1="46" x2="490.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="265.0" y1="46" x2="265.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="535.0" y1="46" x2="535.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="220.0" y1="46" x2="220.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="580.0" y1="46" x2="580.0" y2="796" stroke="#ddd" stroke-width="0.5"/>
+<line x1="220" y1="796" x2="580" y2="796" stroke="#ccc" stroke-width="1.5"/>
+<text x="400.0" y="818" font-size="11" fill="#888" text-anchor="middle" font-style="italic">β coefficient (← protective | risk →)</text>
+<rect x="0" y="10" width="650" height="36" fill="#f8fafc"/>
+<rect x="0" y="10" width="4" height="36" fill="#4472C4" rx="2"/>
+<text x="14" y="26" font-size="13" font-weight="700" fill="#333">Clinical (AD-Related)</text>
+<text x="14" y="40" font-size="11" fill="#64748b">AUC = 0.776 ± 0.070</text>
+<text x="212" y="59.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHS_bios81</title>Polygenic Hazard Score</text>
+<rect x="400.0" y="50" width="109.2520777196045" height="18" fill="#4472C4" rx="3" opacity="0.7445213917652385"/>
+<line x1="220" y1="72" x2="580" y2="72" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="85.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_Age_CardiovascularRisk_clin</title>Age</text>
+<rect x="400.0" y="76" width="97.57662116785826" height="18" fill="#4472C4" rx="3" opacity="0.7023600208839326"/>
+<line x1="220" y1="98" x2="580" y2="98" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="111.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>APOE_e4_carrier</title>APOE e4 Carrier</text>
+<rect x="400.0" y="102" width="79.54640860972157" height="18" fill="#4472C4" rx="3" opacity="0.6372509199795502"/>
+<line x1="220" y1="124" x2="580" y2="124" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="137.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_Education_clin</title>Education</text>
+<rect x="347.6127944444981" y="128" width="52.38720555550192" height="18" fill="#4472C4" rx="3" opacity="0.5391760200615348"/>
+<line x1="220" y1="150" x2="580" y2="150" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="163.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_Diabetes_clin</title>Diabetes</text>
+<rect x="400.0" y="154" width="35.01714420825291" height="18" fill="#4472C4" rx="3" opacity="0.47645079852980216"/>
+<line x1="220" y1="176" x2="580" y2="176" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="189.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_Sex_clin</title>Sex (M to F)</text>
+<rect x="400.0" y="180" width="26.18878256460942" height="18" fill="#4472C4" rx="3" opacity="0.44457060370553403"/>
+<line x1="220" y1="202" x2="580" y2="202" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="215.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_BMI_clin</title>BMI</text>
+<rect x="374.78780555435895" y="206" width="25.212194445641064" height="18" fill="#4472C4" rx="3" opacity="0.4410440354981483"/>
+<line x1="220" y1="228" x2="580" y2="228" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="241.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_Hypertension_clin</title>Hypertension</text>
+<rect x="400.0" y="232" width="18.996269713317133" height="18" fill="#4472C4" rx="3" opacity="0.41859764063142296"/>
+<line x1="220" y1="254" x2="580" y2="254" stroke="#f0f0f0" stroke-width="1"/>
+<rect x="0" y="266" width="650" height="36" fill="#f8fafc"/>
+<rect x="0" y="266" width="4" height="36" fill="#548235" rx="2"/>
+<text x="14" y="282" font-size="13" font-weight="700" fill="#333">T1 (Structural Volume)</text>
+<text x="14" y="296" font-size="11" fill="#64748b">AUC = 0.845 ± 0.126</text>
+<text x="212" y="315.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST24TA_mri_25</title>L Entorhinal Thick</text>
+<rect x="220.0" y="306" width="180.0" height="18" fill="#548235" rx="3" opacity="1.0"/>
+<line x1="220" y1="328" x2="580" y2="328" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="341.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST83TA_mri_25</title>R Entorhinal Thick</text>
+<rect x="271.29816485848403" y="332" width="128.70183514151597" height="18" fill="#548235" rx="3" opacity="0.8147566268999187"/>
+<line x1="220" y1="354" x2="580" y2="354" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="367.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST88SV_mri_20</title>R Hippocampus Vol</text>
+<rect x="327.6672993898252" y="358" width="72.33270061017478" height="18" fill="#548235" rx="3" opacity="0.6112014188700756"/>
+<line x1="220" y1="380" x2="580" y2="380" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="393.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST42SV_mri_23</title>L Precuneus Vol</text>
+<rect x="400.0" y="384" width="27.49648399409645" height="18" fill="#548235" rx="3" opacity="0.44929285886757053"/>
+<line x1="220" y1="406" x2="580" y2="406" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="419.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST105CV_mri_20</title>R Sup Frontal Vol</text>
+<rect x="373.72102993337217" y="410" width="26.278970066627856" height="18" fill="#548235" rx="3" opacity="0.4448962807961561"/>
+<line x1="220" y1="432" x2="580" y2="432" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="445.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST117TA_mri_20</title>R Lat Vent Thick</text>
+<rect x="378.1116672338236" y="436" width="21.888332766176376" height="18" fill="#548235" rx="3" opacity="0.42904120165563686"/>
+<line x1="220" y1="458" x2="580" y2="458" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="471.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST103CV_mri_20</title>R Precuneus Vol</text>
+<rect x="400.0" y="462" width="7.353581915720053" height="18" fill="#548235" rx="3" opacity="0.3765546013623224"/>
+<line x1="220" y1="484" x2="580" y2="484" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="497.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>ST62TA_mri_20</title>ICV Thick</text>
+<rect x="397.02202313153913" y="488" width="2.9779768684608574" height="18" fill="#548235" rx="3" opacity="0.36075380535833085"/>
+<line x1="220" y1="510" x2="580" y2="510" stroke="#f0f0f0" stroke-width="1"/>
+<rect x="0" y="522" width="650" height="36" fill="#f8fafc"/>
+<rect x="0" y="522" width="4" height="36" fill="#BF8F00" rx="2"/>
+<text x="14" y="538" font-size="13" font-weight="700" fill="#333">DTI (Diffusion Metrics)</text>
+<text x="14" y="552" font-size="11" fill="#64748b">AUC = 0.762 ± 0.132</text>
+<text x="212" y="571.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_t1seg_right_hippocampus_freewater_mean_mri_28</title>R Hippocampus FW</text>
+<rect x="400.0" y="562" width="138.20372142055825" height="18" fill="#BF8F00" rx="3" opacity="0.8490689940186826"/>
+<line x1="220" y1="584" x2="580" y2="584" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="597.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>jhu_hippocampus_right_rd_median_mri_28</title>R Hippocampus RD</text>
+<rect x="318.8054640828318" y="588" width="81.19453591716818" height="18" fill="#BF8F00" rx="3" opacity="0.6432024908119962"/>
+<line x1="220" y1="610" x2="580" y2="610" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="623.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>jhu_hippocampus_rd_median_mri_28</title>Hippocampus RD</text>
+<rect x="400.0" y="614" width="56.141066039222466" height="18" fill="#BF8F00" rx="3" opacity="0.552731627363859"/>
+<line x1="220" y1="636" x2="580" y2="636" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="649.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_t1seg_right_fug_fusiform_gyrus_freewater_median_mri_28</title>R Fusiform G. FW</text>
+<rect x="400.0" y="640" width="48.34235932910182" height="18" fill="#BF8F00" rx="3" opacity="0.5245696309106455"/>
+<line x1="220" y1="662" x2="580" y2="662" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="675.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>t1seg_left_phg_parahippocampal_gyrus_rd_median_mri_28</title>L Parahippocampal G. RD</text>
+<rect x="400.0" y="666" width="42.717400181038" height="18" fill="#BF8F00" rx="3" opacity="0.5042572784315261"/>
+<line x1="220" y1="688" x2="580" y2="688" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="701.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>t1seg_left_phg_parahippocampal_gyrus_ad_median_mri_28</title>L Parahippocampal G. AD</text>
+<rect x="400.0" y="692" width="42.13709767009639" height="18" fill="#BF8F00" rx="3" opacity="0.5021617415864592"/>
+<line x1="220" y1="714" x2="580" y2="714" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="727.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_t1seg_right_fug_fusiform_gyrus_md_median_mri_28</title>R Fusiform G. MD</text>
+<rect x="381.4520161677264" y="718" width="18.547983832273573" height="18" fill="#BF8F00" rx="3" opacity="0.41697883050543233"/>
+<line x1="220" y1="740" x2="580" y2="740" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="753.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>PHC_t1seg_left_phg_parahippocampal_gyrus_freewater_median_mri_28</title>L Parahippocampal G. FW</text>
+<rect x="388.13592146667787" y="744" width="11.86407853332211" height="18" fill="#BF8F00" rx="3" opacity="0.39284250581477426"/>
+<line x1="220" y1="766" x2="580" y2="766" stroke="#f0f0f0" stroke-width="1"/>
+<text x="212" y="779.0" font-size="12" fill="#333" text-anchor="end" dominant-baseline="middle"><title>jhu_hippocampus_right_md_median_mri_28</title>R Hippocampus MD</text>
+<rect x="396.4098826567309" y="770" width="3.5901173432691422" height="18" fill="#BF8F00" rx="3" opacity="0.3629643126284719"/>
+<line x1="220" y1="792" x2="580" y2="792" stroke="#f0f0f0" stroke-width="1"/>
+</svg>
+<div class="foot">
+  Bounded logistic regression (L-BFGS-B, L2 λ=0.01, weights ∈ [0, 1]) per modality.
+  LOSO = Leave-One-Site-Out cross-validation.
+</div>
+</body></html>
